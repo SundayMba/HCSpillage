@@ -1,0 +1,51 @@
+﻿body{
+    margin: 0;
+}
+.cover-screen {
+    height: 650px;
+    background-color: rgb(84, 184, 92);
+}
+
+.bg-paragragh {
+    margin-top: 200px;
+    text-align: center;
+    color: white;
+    font-size: 40px;
+}
+
+.icons {
+    width: 50px;
+    height: 50px;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    color: white;
+    background-color: rgb(84, 184, 92);
+}
+
+.RHS-dashboard {
+    margin-left: 18%;
+}
+
+.sidebar-text {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+    .sidebar-text a {
+        text-decoration: none;
+        color: white;
+        margin: 10px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+@media (max-width: 800px) {
+    .sidebar {
+        display: none;
+    }
+}

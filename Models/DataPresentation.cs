@@ -11,5 +11,7 @@
         public  string? Data { get; set; }
         public string? Status { get; set; }
         public bool Verify { get; set;}
+        public bool Config { get; set; }
+
     }
 }

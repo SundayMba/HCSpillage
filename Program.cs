@@ -1,4 +1,7 @@
+using HCSpillage.Data;
 using HCSpillage.Services;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace HCSpillage
 {
@@ -10,8 +13,13 @@ namespace HCSpillage
 
             //register services to the http pipeline
             builder.Services.AddControllersWithViews();
-            builder.Services.AddSingleton<IDataPresentation, DataPresentationImplementation>();
+            builder.Services.AddScoped<IDataPresentation, SQLServerDataRepository>();
+            builder.Services.AddDbContextPool<AppDbContext>(options => {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DataPresentation"));
+            });
 
+            builder.Services.AddIdentity<ApplicationDbUser, IdentityRole>()
+                .AddEntityFrameworkStores<AppDbContext>();
             //build the service
             var app = builder.Build();
 
@@ -25,6 +33,8 @@ namespace HCSpillage
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.MapControllerRoute(
                 "default",

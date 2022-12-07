@@ -26,10 +26,10 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
+                        <a class="nav-link" asp-action="Login" asp-controller="Account">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">Register</a>
+                        <a class="nav-link" asp-action="RegisterByUser" asp-controller="Account">Register</a>
                     </li>
                 </ul>
             </div>
@@ -39,23 +39,30 @@
         @RenderBody()
     </div>
 
-    <footer class="footer text-white text-center" style="background-color: rgb(84, 184, 92);">
+    <footer class="footer text-white text-start ps-4" style="background-color: rgb(84, 184, 92);">
         <div class="row">
-            <div class="col-lg-4 col-sm-12">
-                <h4>Our Service</h4>
-                <p>We Offer Gas at Afordable prices</p>
+            <div class="col-lg-4 col-sm-12 footer-text">
+                <h4>Our Services</h4>
+                <p>Online Database of verified Gas Spill Incidences.</p>
+                <p>Online Platform for daily Gas Flare</p>
+                <p>Gas detection spillage system integration with standard data communication protocol.</p>
             </div>
-            <div class="col-lg-4 col-sm-12">
+            <div class="col-lg-4 col-sm-12 footer-text">
                 <h4>About Us</h4>
-                <a style="text-decoration: none">Learn More About Us</a>
+                <p style="text-decoration: none">Offer Affordable Product</p>
             </div>
-            <div class="col-lg-4 col-sm-12">
+            <div class="col-lg-4 col-sm-12 footer-text">
                 <h4>Contact Us</h4>
-                <p>We Offer Gas at Afordable prices</p>
+                <p>Email: Olawalemohammed774@gmail.com</p>
+                <p>Phone Number: +2348061672316</p>
             </div>
         </div>
     </footer>
     <script src="~/lib/bootstrap/js/bootstrap.bundle.js"></script>
-    @RenderSection("Script", false)
+    @if (IsSectionDefined("Script"))
+    {
+         @RenderSection("Script", true)
+    }
+   
 </body>
 </html>

@@ -22,6 +22,12 @@ namespace HCSpillage.Controllers
             return View(data);
         }
 
+        [Route("deviceData")]
+        public IActionResult GetViewersData()
+        {
+            return View(_dataStore.GetAllData());
+        }
+
         [HttpGet]
         [Route("verified_device")]
         public IActionResult GetVerifiedDevice()
@@ -38,21 +44,8 @@ namespace HCSpillage.Controllers
             return View(device);
         }
 
-        [HttpGet]
-        [Route("create")]
-        public IActionResult Create()
-        {
-            return View();
-        }
-        [HttpPost]
-        [Route("create")]
-        public IActionResult Create(DataPresentationDto device)
-        {
-            if(device == null) 
-                return View();
-             _dataStore.CreateDevice(device);
-            return RedirectToAction("GetAllData");
-        }
+
+
 
     }
 }

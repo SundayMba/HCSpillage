@@ -15,7 +15,8 @@ namespace HCSpillage.Services
                 Time = DateTime.UtcNow.ToShortTimeString(),
                 Status = "On",
                 Verify = false,
-                Location = "Uyo"
+                Location = "Uyo",
+                Config = true
             },
             new DataPresentation() {
                 Id = 2,
@@ -25,7 +26,8 @@ namespace HCSpillage.Services
                 Time = DateTime.UtcNow.ToShortTimeString(),
                 Status = "Off",
                 Verify = true,
-                Location = "Abak"
+                Location = "Abak",
+                Config = false
             },
             new DataPresentation() {
                 Id = 3,
@@ -35,7 +37,8 @@ namespace HCSpillage.Services
                 Time = DateTime.UtcNow.ToShortTimeString(),
                 Status = "Off",
                 Verify = true,
-                Location = "Abak"
+                Location = "Abak",
+                Config = true
             },
             new DataPresentation() {
                 Id = 4,
@@ -45,29 +48,17 @@ namespace HCSpillage.Services
                 Time = DateTime.UtcNow.ToShortTimeString(),
                 Status = "On",
                 Verify = false,
-                Location = "Oron"
+                Location = "Oron",
+                Config = false
             }
         };
 
-        public void CreateDevice(DataPresentationDto device)
-        {
-            var newDevice = new DataPresentation()
-            {
-                Id = Presentations.Max(x => x.Id + 1),
-                DeviceId = device.DeviceId,
-                Location = device.Location,
-                Time = DateTime.UtcNow.ToShortTimeString(),
-                date = DateTime.UtcNow.ToShortDateString(),
-            };
-            Presentations.Add(newDevice);
-        }
-
-        public List<DataPresentation> GetAllData()
+        public IEnumerable<DataPresentation> GetAllData()
         {
             return Presentations;
         }
 
-        public List<DataPresentation> GetAllDataByDeviceId(string deviceId)
+        public IEnumerable<DataPresentation> GetAllDataByDeviceId(string deviceId)
         {
             if (deviceId == null) throw new ArgumentNullException();
             return Presentations.Where(x => x.DeviceId == deviceId).ToList();
@@ -79,12 +70,12 @@ namespace HCSpillage.Services
             return Presentations.FirstOrDefault(x => x.DeviceId == deviceId);
         }
 
-        public List<DataPresentation> GetUnverifiedData()
+        public IEnumerable<DataPresentation> GetUnverifiedData()
         {
             return Presentations.Where(x => x.Verify != true).ToList();
         }
 
-        public List<DataPresentation> GetVerifiedData()
+        public IEnumerable<DataPresentation> GetVerifiedData()
         {
             return Presentations.Where(x => x.Verify == true).ToList();
         }

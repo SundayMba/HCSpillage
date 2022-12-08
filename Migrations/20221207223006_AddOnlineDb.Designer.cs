@@ -4,6 +4,7 @@ using HCSpillage.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HCSpillage.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221207223006_AddOnlineDb")]
+    partial class AddOnlineDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -104,17 +107,17 @@ namespace HCSpillage.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "89e2dd25-e20b-48fc-973e-6802bd7a5a2a",
+                            Id = "badc42d6-e71e-4f97-bbb2-e21c10cd72ed",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1668b450-8d19-4d48-8898-13c830733ad8",
+                            ConcurrencyStamp = "5f5cf211-470f-4c6e-a82e-87550f45cbb5",
                             DeviceId = "12345",
                             DeviceToken = "12345",
                             Email = "Sundinoh@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAENJqu1rXsVi5B2qHsF+nRUwlRW8bTyQQtl/QmIRBGXR5ijPA6SOCjhEspk9tEYD4BA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOSGIUR6/gTJsHNyMf4qdV/uCgColD1tBa5y+C+HPWXlVObUWJLNTq1nSnt5JAd8Zw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "054407af-7271-412a-bff0-76ad23143816",
+                            SecurityStamp = "48ae1004-1627-44c9-97e8-0b6c6007dd44",
                             TwoFactorEnabled = false,
                             UserName = "Sundinoh@gmail.com"
                         });
@@ -167,7 +170,7 @@ namespace HCSpillage.Migrations
                             DeviceId = "A123",
                             Location = "Uyo",
                             Status = "On",
-                            Time = "22:35",
+                            Time = "22:30",
                             Verify = false,
                             date = "07/12/2022"
                         },
@@ -179,7 +182,7 @@ namespace HCSpillage.Migrations
                             DeviceId = "A223",
                             Location = "Abak",
                             Status = "Off",
-                            Time = "22:35",
+                            Time = "22:30",
                             Verify = true,
                             date = "07/12/2022"
                         },
@@ -191,7 +194,7 @@ namespace HCSpillage.Migrations
                             DeviceId = "A523",
                             Location = "Abak",
                             Status = "Off",
-                            Time = "22:35",
+                            Time = "22:30",
                             Verify = true,
                             date = "07/12/2022"
                         },
@@ -203,7 +206,7 @@ namespace HCSpillage.Migrations
                             DeviceId = "A423",
                             Location = "Oron",
                             Status = "On",
-                            Time = "22:35",
+                            Time = "22:30",
                             Verify = false,
                             date = "07/12/2022"
                         });

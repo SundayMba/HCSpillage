@@ -13,13 +13,17 @@ namespace HCSpillage
 
             //register services to the http pipeline
             builder.Services.AddControllersWithViews();
-            builder.Services.AddScoped<IDataPresentation, SQLServerDataRepository>();
-            builder.Services.AddDbContextPool<AppDbContext>(options => {
+            builder.Services.AddScoped<IDataPresentation, DataPresentationImplementation>();
+            builder.Services.AddDbContextPool<AppDbContext>(options =>
+            {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DataPresentation"));
+            });
+            builder.Services.AddDbContextPool<AppDbContext>(options => {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("SmarterAspDb"));
             });
 
             builder.Services.AddIdentity<ApplicationDbUser, IdentityRole>()
-                .AddEntityFrameworkStores<AppDbContext>();
+                            .AddEntityFrameworkStores<AppDbContext>();
             //build the service
             var app = builder.Build();
 

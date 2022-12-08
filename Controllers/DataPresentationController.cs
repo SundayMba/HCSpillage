@@ -1,10 +1,12 @@
 ﻿using HCSpillage.Dtos;
 using HCSpillage.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HCSpillage.Controllers
 {
     [Route("api/device/")]
+    
     public class DataPresentationController : Controller
     {
         private readonly IDataPresentation _dataStore;

@@ -1,11 +1,33 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using HCSpillage.Data;
+using HCSpillage.Dtos;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace HCSpillage.Models
 {
     public static class ModelBuilderExtension
     {
-        public static void  Seed(this ModelBuilder builder)
+        public static void Seed(this ModelBuilder builder)
         {
+
+            var Id = Guid.NewGuid().ToString();
+            //new admin seed data
+            var Admin = new ApplicationDbUser
+            {
+                Id = Id,
+                DeviceId = "12345",
+                DeviceToken = "12345",
+                UserName = "Sundinoh@gmail.com",
+                Email = "Sundinoh@gmail.com",
+                EmailConfirmed = true,
+            };
+
+            //creating a password hasher for the admin
+            var ph = new PasswordHasher<ApplicationDbUser>();
+             Admin.PasswordHash = ph.HashPassword(Admin, "Intmain(1997)");
+
+            builder.Entity<ApplicationDbUser>().HasData(Admin);
+
             builder.Entity<DataPresentation>().HasData(
 
             new DataPresentation()

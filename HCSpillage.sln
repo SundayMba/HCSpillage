@@ -5,14 +5,6 @@ VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HCSpillage", "HCSpillage.csproj", "{E99F5914-2DF8-4285-8691-FD767DB79673}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HCspillage1", "..\HCspillage1\HCspillage1.csproj", "{61B726B5-B824-42F9-B92F-0EB4ECD2C282}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HCSpilllage2Console", "..\HCSpilllage2Console\HCSpilllage2Console.csproj", "{8CCDD941-D2BE-474C-BE13-64EF1C832994}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplicationHng", "..\WebApplicationHng\WebApplicationHng.csproj", "{6420CF06-F86C-4F97-9583-C805FD0887F1}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement", "..\..\..\..\..\Desktop\PROGRAMMING\Projects\AspNetCore-Web-Api-Learning-1\WebApplication1\EmployeeManagement.csproj", "{39C73122-71D6-4103-B018-BAC0292277D1}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,22 +15,6 @@ Global
 		{E99F5914-2DF8-4285-8691-FD767DB79673}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E99F5914-2DF8-4285-8691-FD767DB79673}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E99F5914-2DF8-4285-8691-FD767DB79673}.Release|Any CPU.Build.0 = Release|Any CPU
-		{61B726B5-B824-42F9-B92F-0EB4ECD2C282}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{61B726B5-B824-42F9-B92F-0EB4ECD2C282}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{61B726B5-B824-42F9-B92F-0EB4ECD2C282}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{61B726B5-B824-42F9-B92F-0EB4ECD2C282}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8CCDD941-D2BE-474C-BE13-64EF1C832994}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8CCDD941-D2BE-474C-BE13-64EF1C832994}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8CCDD941-D2BE-474C-BE13-64EF1C832994}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8CCDD941-D2BE-474C-BE13-64EF1C832994}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6420CF06-F86C-4F97-9583-C805FD0887F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6420CF06-F86C-4F97-9583-C805FD0887F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6420CF06-F86C-4F97-9583-C805FD0887F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6420CF06-F86C-4F97-9583-C805FD0887F1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{39C73122-71D6-4103-B018-BAC0292277D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{39C73122-71D6-4103-B018-BAC0292277D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{39C73122-71D6-4103-B018-BAC0292277D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{39C73122-71D6-4103-B018-BAC0292277D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

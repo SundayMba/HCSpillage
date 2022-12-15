@@ -13,16 +13,13 @@ namespace HCSpillage.Dtos
         public string DeviceId { get; set; }
 
         [Required]
-        [DisplayName("Device Token")]
-        public string DeviceToken { get; set; }
-
-        [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
         [Required]
         [Compare("Password", ErrorMessage ="Password does not match")]
+        [DisplayName("Confirm Password")]
         public string ConfirmPassword { get; set; }
     }
 }

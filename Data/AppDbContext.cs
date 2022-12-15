@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HCSpillage.Data
 {
-    public class AppDbContext : IdentityDbContext<ApplicationDbUser>
+    public class AppDbContext : IdentityDbContext<ApplicationUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {

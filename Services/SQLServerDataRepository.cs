@@ -13,28 +13,38 @@ namespace HCSpillage.Services
             this.dbContext = dbContext;
         }
 
-        public IEnumerable<DataPresentation> GetAllData()
+        public DataPresentation CreateDevice(DataPresentation device)
         {
-            return dbContext.DeviceData.ToList() ;
+            dbContext.DeviceData.Add(device);
+            dbContext.SaveChanges();
+            return device;
         }
 
-        public IEnumerable<DataPresentation> GetAllDataByDeviceId(string deviceId)
+        public IEnumerable<DataPresentation> GetAllData()
+        {
+            var DataCollection = dbContext.DeviceData.Where(x => x.Data == "Yes").ToList();
+            return DataCollection;
+        }
+
+        public List<DataPresentation> GetAllDataByDeviceId(string deviceId)
         {
            if(!string.IsNullOrEmpty(deviceId))
             {
-                return dbContext.DeviceData.Where(device => device.DeviceId == deviceId);
+                return dbContext.DeviceData.Where(device => device.DeviceId == deviceId).ToList();
             }
             return null;
+        }
+
+        public IEnumerable<DataPresentation> GetAllDeviceByData()
+        {
+            var data = dbContext.DeviceData.ToList();
+            return data;
         }
 
         public DataPresentation GetDataByDeviceId(string deviceId)
         {
-            if(!string.IsNullOrEmpty(deviceId))
-            {
-                return dbContext.DeviceData.Find(deviceId);
-            }
-
-            return null;
+            
+            return dbContext.DeviceData.FirstOrDefault(d => d.DeviceId == deviceId);
              
         }
 
@@ -46,6 +56,12 @@ namespace HCSpillage.Services
         public IEnumerable<DataPresentation> GetVerifiedData()
         {
             return dbContext.DeviceData.Where(device => device.Verify == true);
+        }
+
+        public void VerifyDevice(DataPresentation device)
+        {
+            var deviceId = GetDataByDeviceId(device.DeviceId);
+            device.Verify = true;
         }
     }
 }

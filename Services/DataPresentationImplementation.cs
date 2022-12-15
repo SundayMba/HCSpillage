@@ -53,15 +53,26 @@ namespace HCSpillage.Services
             }
         };
 
+        public DataPresentation CreateDevice(DataPresentation device)
+        {
+            Presentations.Add(device);
+            return device;
+        }
+
         public IEnumerable<DataPresentation> GetAllData()
         {
             return Presentations;
         }
 
-        public IEnumerable<DataPresentation> GetAllDataByDeviceId(string deviceId)
+        public List<DataPresentation> GetAllDataByDeviceId(string deviceId)
         {
             if (deviceId == null) throw new ArgumentNullException();
             return Presentations.Where(x => x.DeviceId == deviceId).ToList();
+        }
+
+        public IEnumerable<DataPresentation> GetAllDeviceByData()
+        {
+            return Presentations;
         }
 
         public DataPresentation GetDataByDeviceId(string deviceId)
@@ -78,6 +89,11 @@ namespace HCSpillage.Services
         public IEnumerable<DataPresentation> GetVerifiedData()
         {
             return Presentations.Where(x => x.Verify == true).ToList();
+        }
+
+        public void VerifyDevice(DataPresentation device)
+        {
+            throw new NotImplementedException();
         }
     }
 }

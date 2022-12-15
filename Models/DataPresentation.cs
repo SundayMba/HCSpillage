@@ -12,6 +12,7 @@
         public string? Status { get; set; }
         public bool Verify { get; set;}
         public bool Config { get; set; }
+        public string? Email { get; set; }
 
     }
 }

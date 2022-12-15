@@ -1,20 +1,37 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@inject SignInManager<ApplicationUser> signInManager
+@inject UserManager<ApplicationUser> userManager
+<!DOCTYPE html>
+<html lang="en" style="min-height: 100%;">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" asp-append-version="true"/>
-    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <environment include="Development">
+        <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    </environment>
+    <environment exclude="Development">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+              crossorigin="anonymous"
+              asp-fallback-href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+              asp-fallback-test-class="sr-only"
+              asp-fallback-test-property="position"
+              asp-fallback-test-value="absolute"
+              asp-suppress-fallback-integrity="true">
+
+    </environment>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="~/css/HomeStyle.css" asp-append-version="true">
-    <title>Home Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <title>@ViewBag.Title</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-success navbar-transparent">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#brand">HCSpillage</a>
+            <a class="navbar-brand" asp-action="index" asp-controller="home">HCSpillage</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -23,45 +40,101 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" asp-action="Index" asp-controller="Home">Home</a>
                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" asp-action="GetAllData" asp-controller="DataPresentation">Dashboard</a>
-                    </li>
+                @if(User.Identity.IsAuthenticated)
+                {
+                  
+                    var AppUser = await userManager.FindByNameAsync(User.Identity.Name);
+                    
+                    if (await userManager.IsInRoleAsync(AppUser, "Admin"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" asp-action="GetAllData" asp-controller="DataPresentation">Dashboard</a>
+                        </li>
+                    }
+                    else
+                    {
+
+                        <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" asp-action="UserDeviceInformation" asp-controller="Home" asp-route-Name="@User.Identity.Name"> Dashboard </a>
+                        </li>
+                    }
+
+                }
+
                 </ul>
+                @if(signInManager.IsSignedIn(User))
+                {
+                  
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" asp-action="Login" asp-controller="Account">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-action="RegisterByUser" asp-controller="Account">Register</a>
-                    </li>
-                </ul>
+                    
+                        <li class="nav-item">
+                            <form method="post" asp-action="Logout" asp-controller="Account">
+
+                                <button type="submit" class="nav-link btn btn-link"> 
+                                    LOGOUT  @User.Identity?.Name
+                                </button>
+
+                            </form>
+                        </li>
+                    </ul>
+                }else
+                {
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="Login" asp-controller="Account">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="Register" asp-controller="Account">Register</a>
+                        </li>
+                    </ul>
+                }
+
             </div>
         </div>
     </nav>
-    <div>
+    <div class="container-fluid">
         @RenderBody()
     </div>
 
-    <footer class="footer text-white text-start ps-4" style="background-color: rgb(84, 184, 92);">
+    <footer class="footer text-white  text-start ps-4" style="background-color: rgb(84, 184, 92);">
         <div class="row">
-            <div class="col-lg-4 col-sm-12 footer-text">
+            <div class="col-lg-4 col-sm-12 footer-text mt-lg-4">
                 <h4>Our Services</h4>
-                <p>Online Database of verified Gas Spill Incidences.</p>
-                <p>Online Platform for daily Gas Flare</p>
-                <p>Gas detection spillage system integration with standard data communication protocol.</p>
+                <ul>
+                    <li>Online Database of verified Gas Spill Incidences</li>
+                    <li>Online Platform for daily Gas Flare</li>
+                    <li>Gas detection spillage system integration with standard data communication protocol</li>
+
+                </ul>
+             
             </div>
-            <div class="col-lg-4 col-sm-12 footer-text">
+            <div class="col-lg-4 col-sm-12 footer-text mt-lg-4">
                 <h4>About Us</h4>
-                <p style="text-decoration: none">Offer Affordable Product</p>
+                <ul>
+                    <li>Offer Affordable Product</li>
+                    <li>
+                        Provide effective solution putting all safety
+                        measures to keep our environment safe from 
+                        environmental menace caused by oil spillages.
+                    </li>
+                </ul>
+                
             </div>
-            <div class="col-lg-4 col-sm-12 footer-text">
+            <div class="col-lg-4 col-sm-12 footer-text mt-lg-4">
                 <h4>Contact Us</h4>
-                <p>Email: Olawalemohammed774@gmail.com</p>
-                <p>Phone Number: +2348061672316</p>
+                <ul>
+                    <li>Email: Olawalemohammed774@gmail.com</li>
+                    <li>Phone Number: +2348061672316</li>
+                </ul>
+              
             </div>
         </div>
     </footer>
-    <script src="~/lib/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="~/lib/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="~/lib/jquery/jquery.js"></script>
+<script src="~/lib/jquery-validate/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
     @if (IsSectionDefined("Script"))
     {
          @RenderSection("Script", true)

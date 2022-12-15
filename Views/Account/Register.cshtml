@@ -1,0 +1,61 @@
+﻿@model UserAccountViewModel
+
+@{
+	ViewBag.Title = "User Registration";
+}
+
+<div class="container" style="margin-top: 100px">
+
+	<div class="row">
+
+
+		<div class="col-lg-3"></div>
+		<div class="col-lg-6 col-sm-12 shadow card">
+
+			<form method="post" asp-action="Register" asp-controller="Account">
+				<div class="mb-3">
+					<h3 class="text-center mt-3">User Registration</h3>
+				</div>
+
+				<div class="mb-3">
+					<label asp-for="Email" class="form-label"></label>
+					<input asp-for="Email" class="form-control" placeholder="Email" />
+					<span asp-validation-for="Email" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label asp-for="DeviceId" class="form-label"></label>
+					<input asp-for="DeviceId" class="form-control" placeholder="Device Id" />
+					<span asp-validation-for="DeviceId" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label asp-for="Password" class="form-label"></label>
+					<input asp-for="Password" class="form-control" placeholder="Password" />
+					<span asp-validation-for="Password" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label asp-for="ConfirmPassword" class="form-label"></label>
+					<input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm Password" />
+					<span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+				</div>
+				<div class="mb-3 text-center">
+					<button class="btn btn-primary btn-lg" style="width: 100%;" type="submit">Register</button>
+				</div>
+
+				<div asp-validation-summary="All" class="text-danger"></div>
+			</form>
+		</div>
+
+		<div class="col-lg-3"></div>
+	</div>
+</div>
+
+@section Script
+	{
+	<script>
+		var element = document.getElementsByTagName("footer")[0];
+		element.parentNode.removeChild(element);
+	</script>
+  }

@@ -1,0 +1,16 @@
+﻿
+@model int
+
+<div class="mt-5 lead text-center">
+	<br />
+	<h3>@Model Error </h3><br />
+	<h3>Sorry, the Resource is not available</h3>
+</div>
+
+@section Script
+	{
+	<script>
+		var element = document.getElementsByTagName("footer")[0];
+		element.parentNode.removeChild(element);
+	</script>
+  }

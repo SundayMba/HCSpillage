@@ -17,20 +17,26 @@
 		</div>
 
 				<div class="mb-3">
-			<label asp-for="UserName" class="form-label"></label>
-			<input asp-for="UserName" class="form-control" placeholder="UserName"/>
-			<span asp-validation-for="UserName"></span>
+			<label asp-for="Email" class="form-label"></label>
+			<input asp-for="Email" class="form-control" placeholder="Email"/>
+			<span asp-validation-for="Email" class="text-danger"></span>
 		</div>
 
 				<div class ="mb-3">
 				<label asp-for="Password" class="form-label"></label>
 				<input asp-for="Password" class="form-control" placeholder="Password" />
-				<span asp-validation-for="Password"></span>
+					<span asp-validation-for="Password" class="text-danger"></span>
+			</div>
+			<div class="form-check">
+				<label asp-for="RememberMe" class="form-check-label">
+					<input asp-for="RememberMe"/>
+					@Html.DisplayNameFor( model => model.RememberMe)
+				</label>
 			</div>
 			<div class="mb-3 text-center">
 			<button class="btn btn-primary btn-lg" style="width: 100%;" type="submit">Login</button>
 			</div>
-		
+				<div asp-validation-summary="All" class="text-danger"></div>
 	</form>
 	</div>
 

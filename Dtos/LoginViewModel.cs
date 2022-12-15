@@ -1,14 +1,19 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace HCSpillage.Dtos
 {
     public class LoginViewModel
     {
         [Required]
-        public string  UserName { get; set; }
+        [DisplayName("Email")]
+        public string  Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        public string Password { get; set; }    
+        public string Password { get; set; }
+
+        [DisplayName("Remember Me")]
+        public bool RememberMe { get; set; }
     }
 }

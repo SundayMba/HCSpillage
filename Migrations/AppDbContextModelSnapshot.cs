@@ -22,7 +22,7 @@ namespace HCSpillage.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("HCSpillage.Data.ApplicationDbUser", b =>
+            modelBuilder.Entity("HCSpillage.Data.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -37,24 +37,12 @@ namespace HCSpillage.Migrations
                     b.Property<string>("DeviceId")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DeviceToken")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Location")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -104,19 +92,53 @@ namespace HCSpillage.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "89e2dd25-e20b-48fc-973e-6802bd7a5a2a",
+                            Id = "d8279a54-566d-4c42-8f45-c62e8879dd4a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1668b450-8d19-4d48-8898-13c830733ad8",
-                            DeviceId = "12345",
-                            DeviceToken = "12345",
-                            Email = "Sundinoh@gmail.com",
-                            EmailConfirmed = true,
-                            LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAENJqu1rXsVi5B2qHsF+nRUwlRW8bTyQQtl/QmIRBGXR5ijPA6SOCjhEspk9tEYD4BA==",
+                            ConcurrencyStamp = "8d9c912b-d114-4f77-a449-3b5c3affa471",
+                            Email = "Admin@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "ADMIN@GMAIL.COM",
+                            NormalizedUserName = "ADMIN@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDW9DBU/oFjcpH1uXHqzA41un4qQCgQJWSP6Ix4aLj4SlOzOKvNeQyP2Q7c7CLeHLw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "054407af-7271-412a-bff0-76ad23143816",
+                            SecurityStamp = "0bb49f60-8c29-42ed-9a0d-bdeb4e57398b",
                             TwoFactorEnabled = false,
-                            UserName = "Sundinoh@gmail.com"
+                            UserName = "Admin@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "5a805103-d331-4154-93e8-d6ca4aec72ba",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "de11e71c-756a-4331-96ae-c58256a44628",
+                            DeviceId = "A123",
+                            Email = "Emma@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "EMMA@GMAIL.COM",
+                            NormalizedUserName = "EMMA@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBf8ZMWQwaA/FLgIb/xHPrrs3jjy7P5DrFvvEUFWVj3nKb35ehM5YSQnu8RcpJDvjg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "b96a51fd-d957-4857-ac09-754e199cc261",
+                            TwoFactorEnabled = false,
+                            UserName = "Emma@gmail.com"
+                        },
+                        new
+                        {
+                            Id = "36a578b8-e098-475b-8425-36290f6b30c8",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "eada4d20-4220-4266-82ca-ace0070df95c",
+                            DeviceId = "A423",
+                            Email = "abc@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "ABC@GMAIL.COM",
+                            NormalizedUserName = "ABC@GMAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMmEBQ1WQNePG2QVxkgEWlVmz+nu/XnZoOxIOktXLU9fNmu3fuf7G7ZIWv95y6J5yQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "b7249054-e006-45ab-abbd-69b9b37b8180",
+                            TwoFactorEnabled = false,
+                            UserName = "abc@GMAIL.COM"
                         });
                 });
 
@@ -135,6 +157,9 @@ namespace HCSpillage.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DeviceId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
@@ -163,49 +188,157 @@ namespace HCSpillage.Migrations
                         {
                             Id = 1,
                             Config = true,
-                            Data = "Gas detected",
+                            Data = "Yes",
                             DeviceId = "A123",
+                            Email = "emma@gmail.com",
                             Location = "Uyo",
                             Status = "On",
-                            Time = "22:35",
+                            Time = "15:16",
                             Verify = false,
-                            date = "07/12/2022"
+                            date = "12/12/2022"
                         },
                         new
                         {
                             Id = 2,
-                            Config = false,
-                            Data = "Gas detected",
-                            DeviceId = "A223",
-                            Location = "Abak",
-                            Status = "Off",
-                            Time = "22:35",
+                            Config = true,
+                            Data = "Yes",
+                            DeviceId = "A123",
+                            Email = "emma.@gmail.com",
+                            Location = "Uyo",
+                            Status = "On",
+                            Time = "15:16",
                             Verify = true,
-                            date = "07/12/2022"
+                            date = "12/12/2022"
                         },
                         new
                         {
                             Id = 3,
-                            Config = true,
-                            Data = "Gas detected",
-                            DeviceId = "A523",
-                            Location = "Abak",
-                            Status = "Off",
-                            Time = "22:35",
+                            Config = false,
+                            Data = "Yes",
+                            DeviceId = "A123",
+                            Email = "emma@gmail.com",
+                            Location = "Uyo",
+                            Status = "On",
+                            Time = "15:16",
                             Verify = true,
-                            date = "07/12/2022"
+                            date = "12/12/2022"
                         },
                         new
                         {
                             Id = 4,
                             Config = false,
-                            Data = "Gas detected",
+                            Data = "Yes",
                             DeviceId = "A423",
+                            Email = "abc@gmail.com",
                             Location = "Oron",
                             Status = "On",
-                            Time = "22:35",
+                            Time = "15:16",
                             Verify = false,
-                            date = "07/12/2022"
+                            date = "12/12/2022"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Config = false,
+                            Data = "Yes",
+                            DeviceId = "A423",
+                            Email = "abc@gmail.com",
+                            Location = "Oron",
+                            Status = "On",
+                            Time = "15:16",
+                            Verify = false,
+                            date = "12/12/2022"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Config = false,
+                            Data = "No",
+                            DeviceId = "A423",
+                            Email = "abc@gmail.com",
+                            Location = "Oron",
+                            Status = "On",
+                            Time = "15:16",
+                            Verify = true,
+                            date = "12/12/2022"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Config = true,
+                            Data = "No",
+                            DeviceId = "A423",
+                            Email = "abc@gmail.com",
+                            Location = "Oron",
+                            Status = "On",
+                            Time = "15:16",
+                            Verify = true,
+                            date = "12/12/2022"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Config = false,
+                            Data = "No",
+                            DeviceId = "A423",
+                            Email = "abc@gmail.com",
+                            Location = "Oron",
+                            Status = "On",
+                            Time = "15:16",
+                            Verify = false,
+                            date = "12/12/2022"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Config = false,
+                            Data = "No",
+                            DeviceId = "B123",
+                            Email = "luis@gmail.com",
+                            Location = "Oron",
+                            Status = "On",
+                            Time = "15:16",
+                            Verify = false,
+                            date = "12/12/2022"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Config = false,
+                            Data = "No",
+                            DeviceId = "A982",
+                            Email = "Samuel@gmail.com",
+                            Location = "Oron",
+                            Status = "On",
+                            Time = "15:16",
+                            Verify = false,
+                            date = "12/12/2022"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Config = false,
+                            Data = "No",
+                            DeviceId = "A093",
+                            Email = "Oboho@gmail.com",
+                            Location = "Oron",
+                            Status = "On",
+                            Time = "15:16",
+                            Verify = false,
+                            date = "12/12/2022"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Config = false,
+                            Data = "No",
+                            DeviceId = "A938",
+                            Email = "Solomon@gmail.com",
+                            Location = "Oron",
+                            Status = "OFF",
+                            Time = "15:16",
+                            Verify = true,
+                            date = "12/12/2022"
                         });
                 });
 
@@ -234,6 +367,22 @@ namespace HCSpillage.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "783c11bc-75a6-463a-b8aa-7a2697f6ef4f",
+                            ConcurrencyStamp = "bf8026e9-bb3e-4d41-ba27-d382b19dabc8",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "a4719535-4dbb-4ea6-a41f-672c1a7f243e",
+                            ConcurrencyStamp = "091307ab-881e-4abf-a3d4-22d8dd73b478",
+                            Name = "Customer",
+                            NormalizedName = "CUSTOMER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -321,6 +470,23 @@ namespace HCSpillage.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "d8279a54-566d-4c42-8f45-c62e8879dd4a",
+                            RoleId = "783c11bc-75a6-463a-b8aa-7a2697f6ef4f"
+                        },
+                        new
+                        {
+                            UserId = "5a805103-d331-4154-93e8-d6ca4aec72ba",
+                            RoleId = "a4719535-4dbb-4ea6-a41f-672c1a7f243e"
+                        },
+                        new
+                        {
+                            UserId = "36a578b8-e098-475b-8425-36290f6b30c8",
+                            RoleId = "a4719535-4dbb-4ea6-a41f-672c1a7f243e"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -353,7 +519,7 @@ namespace HCSpillage.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("HCSpillage.Data.ApplicationDbUser", null)
+                    b.HasOne("HCSpillage.Data.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -362,7 +528,7 @@ namespace HCSpillage.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("HCSpillage.Data.ApplicationDbUser", null)
+                    b.HasOne("HCSpillage.Data.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -377,7 +543,7 @@ namespace HCSpillage.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("HCSpillage.Data.ApplicationDbUser", null)
+                    b.HasOne("HCSpillage.Data.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -386,7 +552,7 @@ namespace HCSpillage.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("HCSpillage.Data.ApplicationDbUser", null)
+                    b.HasOne("HCSpillage.Data.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

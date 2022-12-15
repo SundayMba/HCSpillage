@@ -1,6 +1,7 @@
 ﻿using HCSpillage.Data;
 using HCSpillage.Models;
 using HCSpillage.Services;
+using HCSpillage.Time;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -55,6 +56,45 @@ namespace HCSpillage.Controllers
         public IActionResult Error()
         {
             return View();
+        }
+
+
+        [Route("Api/devicedata")]
+        [AllowAnonymous]
+        [HttpPost]
+        public IActionResult ApiHandler(ApiModel model)
+        {
+            if(ModelState.IsValid)
+            {
+                DataPresentation device = repository.GetDataByDeviceId(model.DeviceId);
+                if(device != null)
+                {
+                    DataPresentation deviceData = new DataPresentation
+                    {
+                        DeviceId = model.DeviceId,
+                        Data = model.Data,
+                        Status = model.Status,
+                        Verify = model.verify,
+                        Config = model.Config,
+                        Time = TimeConversion.GetFormattedTime(),
+                        date = DateTime.Now.ToShortDateString(),
+                        Location = device.Location,
+                        Email = device.Email,                      
+                    };
+
+                    var result = repository.CreateDevice(deviceData);
+                    if (result != null)
+                    {
+                        return Json("Device Created");
+                    }
+                        
+                }
+
+                return Json("Device ID specified does not exist");
+            }
+
+            return Json("Parameters not specified well");
+            
         }
     }
 }

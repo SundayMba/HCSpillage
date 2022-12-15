@@ -29,10 +29,10 @@ namespace HCSpillage
             });
 
 
-            //builder.Services.AddDbContextPool<AppDbContext>(options =>
-            //{
-            //    options.UseSqlServer(builder.Configuration.GetConnectionString("SmarterAspDb"));
-            //});
+            builder.Services.AddDbContextPool<AppDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("SmarterAspDb"));
+            });
 
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
                             .AddRoles<IdentityRole>()

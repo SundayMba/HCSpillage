@@ -1,12 +1,15 @@
-﻿namespace HCSpillage.Models
+﻿using HCSpillage.Time;
+
+namespace HCSpillage.Models
 {
     public class DataPresentation
     {
+
         public int Id { get; set; }    
         public string? Location { get; set; }
         public string? DeviceId { get; set; }
         public String date { get; set; } = DateTime.Now.ToShortDateString();
-        public string Time { get; set; } = DateTime.Now.ToShortTimeString();
+        public string Time { get; set; } = TimeConversion.GetFormattedTime();
 
         public  string? Data { get; set; }
         public string? Status { get; set; }

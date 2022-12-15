@@ -4,6 +4,8 @@ using HCSpillage.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Globalization;
+using HCSpillage.Time;
 
 namespace HCSpillage.Controllers
 {
@@ -61,25 +63,33 @@ namespace HCSpillage.Controllers
         {
             if(ModelState.IsValid)
             {
-                var utcNow = DateTime.UtcNow;
-                //var timezone = TimeZoneInfo.FindSystemTimeZoneById("West African Time");
-                //var localDateTime = TimeZoneInfo.ConvertTimeFromUtc(utcNow, timezone);
-                var device = new DataPresentation
+                DataPresentation presentation = _dataStore.GetDataByDeviceId(model.DeviceId);
+                if(presentation != null) //device does't exist that has same device id
                 {
-                    
-                    DeviceId = model.DeviceId,
-                    Location = model.Location,
-                    Email = model.Email,
-                    Config = false,
-                    Data = "No",
-                    Status = "OFF",
-                    date = DateTime.Now.ToShortDateString(),
-                    Time = DateTime.Now.ToShortDateString()
-                };
+                    ModelState.AddModelError(string.Empty, errorMessage: "Sorry, the selected device already exist");
+                }else
+                {
+                    var device = new DataPresentation
+                    {
 
-                var createdDevice = _dataStore.CreateDevice(device);
-                if (createdDevice != null)
-                    return RedirectToAction("GetAllData");
+                        DeviceId = model.DeviceId,
+                        Location = model.Location,
+                        Email = model.Email,
+                        Config = false,
+                        Data = "No",
+                        Status = "OFF",
+                        date = DateTime.Now.ToShortDateString(),
+                        Time = TimeConversion.GetFormattedTime()
+                    };
+
+
+                    var createdDevice = _dataStore.CreateDevice(device);
+                    if (createdDevice != null)
+                        return RedirectToAction("GetAllData");
+
+                }
+                return View(model);
+
             }
 
             return View(model);

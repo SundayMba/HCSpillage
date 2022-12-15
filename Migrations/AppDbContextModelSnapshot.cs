@@ -94,15 +94,15 @@ namespace HCSpillage.Migrations
                         {
                             Id = "d8279a54-566d-4c42-8f45-c62e8879dd4a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8d9c912b-d114-4f77-a449-3b5c3affa471",
+                            ConcurrencyStamp = "1b8c231b-df1c-4769-8623-208b88a60507",
                             Email = "Admin@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = true,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDW9DBU/oFjcpH1uXHqzA41un4qQCgQJWSP6Ix4aLj4SlOzOKvNeQyP2Q7c7CLeHLw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEE2WuhtftGdL2rR8VJMHWEx/LbQqFzkGN595zCFBBgFbSSoSJjqi6Iw6SGY+Kz4GFQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0bb49f60-8c29-42ed-9a0d-bdeb4e57398b",
+                            SecurityStamp = "e0000fc5-ddcf-48b0-b16a-4cf5df56b14a",
                             TwoFactorEnabled = false,
                             UserName = "Admin@gmail.com"
                         },
@@ -110,33 +110,33 @@ namespace HCSpillage.Migrations
                         {
                             Id = "5a805103-d331-4154-93e8-d6ca4aec72ba",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "de11e71c-756a-4331-96ae-c58256a44628",
+                            ConcurrencyStamp = "f3e078e2-c3b1-444e-a6fc-62136858dabb",
                             DeviceId = "A123",
-                            Email = "Emma@gmail.com",
+                            Email = "emma@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = true,
                             NormalizedEmail = "EMMA@GMAIL.COM",
                             NormalizedUserName = "EMMA@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBf8ZMWQwaA/FLgIb/xHPrrs3jjy7P5DrFvvEUFWVj3nKb35ehM5YSQnu8RcpJDvjg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPxhZ2wI9fNeR9fXNaG9p0V2PXaBwVQSurjZZoasWNQTpM3/R02JuK57FwPyl+UMuQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b96a51fd-d957-4857-ac09-754e199cc261",
+                            SecurityStamp = "22a896ec-da6d-438d-aa81-148fd8c66386",
                             TwoFactorEnabled = false,
-                            UserName = "Emma@gmail.com"
+                            UserName = "emma@gmail.com"
                         },
                         new
                         {
                             Id = "36a578b8-e098-475b-8425-36290f6b30c8",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "eada4d20-4220-4266-82ca-ace0070df95c",
-                            DeviceId = "A423",
+                            ConcurrencyStamp = "9f78f234-4abc-43ae-a335-edd5bc714bb8",
+                            DeviceId = "A456",
                             Email = "abc@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = true,
                             NormalizedEmail = "ABC@GMAIL.COM",
                             NormalizedUserName = "ABC@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMmEBQ1WQNePG2QVxkgEWlVmz+nu/XnZoOxIOktXLU9fNmu3fuf7G7ZIWv95y6J5yQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEE5fFvj2owTIwW34zPGYpDZwX2zPcef+z0c4sdYe9cFp9no4MCjF/2OxKmQ5tTfTSg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b7249054-e006-45ab-abbd-69b9b37b8180",
+                            SecurityStamp = "956fe895-808f-4516-bdee-64faff99034d",
                             TwoFactorEnabled = false,
                             UserName = "abc@GMAIL.COM"
                         });
@@ -188,157 +188,27 @@ namespace HCSpillage.Migrations
                         {
                             Id = 1,
                             Config = true,
-                            Data = "Yes",
+                            Data = "No",
                             DeviceId = "A123",
                             Email = "emma@gmail.com",
                             Location = "Uyo",
                             Status = "On",
-                            Time = "15:16",
+                            Time = "1:51 PM",
                             Verify = false,
-                            date = "12/12/2022"
+                            date = "14/12/2022"
                         },
                         new
                         {
                             Id = 2,
-                            Config = true,
-                            Data = "Yes",
-                            DeviceId = "A123",
-                            Email = "emma.@gmail.com",
-                            Location = "Uyo",
-                            Status = "On",
-                            Time = "15:16",
-                            Verify = true,
-                            date = "12/12/2022"
-                        },
-                        new
-                        {
-                            Id = 3,
                             Config = false,
                             Data = "Yes",
-                            DeviceId = "A123",
-                            Email = "emma@gmail.com",
-                            Location = "Uyo",
-                            Status = "On",
-                            Time = "15:16",
+                            DeviceId = "A456",
+                            Email = "abc@gmail.com",
+                            Location = "Abak",
+                            Status = "Off",
+                            Time = "1:51 PM",
                             Verify = true,
-                            date = "12/12/2022"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Config = false,
-                            Data = "Yes",
-                            DeviceId = "A423",
-                            Email = "abc@gmail.com",
-                            Location = "Oron",
-                            Status = "On",
-                            Time = "15:16",
-                            Verify = false,
-                            date = "12/12/2022"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Config = false,
-                            Data = "Yes",
-                            DeviceId = "A423",
-                            Email = "abc@gmail.com",
-                            Location = "Oron",
-                            Status = "On",
-                            Time = "15:16",
-                            Verify = false,
-                            date = "12/12/2022"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Config = false,
-                            Data = "No",
-                            DeviceId = "A423",
-                            Email = "abc@gmail.com",
-                            Location = "Oron",
-                            Status = "On",
-                            Time = "15:16",
-                            Verify = true,
-                            date = "12/12/2022"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Config = true,
-                            Data = "No",
-                            DeviceId = "A423",
-                            Email = "abc@gmail.com",
-                            Location = "Oron",
-                            Status = "On",
-                            Time = "15:16",
-                            Verify = true,
-                            date = "12/12/2022"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Config = false,
-                            Data = "No",
-                            DeviceId = "A423",
-                            Email = "abc@gmail.com",
-                            Location = "Oron",
-                            Status = "On",
-                            Time = "15:16",
-                            Verify = false,
-                            date = "12/12/2022"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Config = false,
-                            Data = "No",
-                            DeviceId = "B123",
-                            Email = "luis@gmail.com",
-                            Location = "Oron",
-                            Status = "On",
-                            Time = "15:16",
-                            Verify = false,
-                            date = "12/12/2022"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Config = false,
-                            Data = "No",
-                            DeviceId = "A982",
-                            Email = "Samuel@gmail.com",
-                            Location = "Oron",
-                            Status = "On",
-                            Time = "15:16",
-                            Verify = false,
-                            date = "12/12/2022"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            Config = false,
-                            Data = "No",
-                            DeviceId = "A093",
-                            Email = "Oboho@gmail.com",
-                            Location = "Oron",
-                            Status = "On",
-                            Time = "15:16",
-                            Verify = false,
-                            date = "12/12/2022"
-                        },
-                        new
-                        {
-                            Id = 12,
-                            Config = false,
-                            Data = "No",
-                            DeviceId = "A938",
-                            Email = "Solomon@gmail.com",
-                            Location = "Oron",
-                            Status = "OFF",
-                            Time = "15:16",
-                            Verify = true,
-                            date = "12/12/2022"
+                            date = "14/12/2022"
                         });
                 });
 
@@ -372,14 +242,14 @@ namespace HCSpillage.Migrations
                         new
                         {
                             Id = "783c11bc-75a6-463a-b8aa-7a2697f6ef4f",
-                            ConcurrencyStamp = "bf8026e9-bb3e-4d41-ba27-d382b19dabc8",
+                            ConcurrencyStamp = "87559e29-7e31-432a-a927-0242521b2283",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "a4719535-4dbb-4ea6-a41f-672c1a7f243e",
-                            ConcurrencyStamp = "091307ab-881e-4abf-a3d4-22d8dd73b478",
+                            ConcurrencyStamp = "0191d3b2-9e80-47aa-8dee-0cd215a9940c",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         });

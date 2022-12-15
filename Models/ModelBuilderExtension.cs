@@ -1,5 +1,6 @@
 ﻿using HCSpillage.Data;
 using HCSpillage.Dtos;
+using HCSpillage.Time;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -41,8 +42,8 @@ namespace HCSpillage.Models
             {
                 Id = sundayId,
                 DeviceId = "A123",
-                Email = "Emma@gmail.com",
-                UserName = "Emma@gmail.com",
+                Email = "emma@gmail.com",
+                UserName = "emma@gmail.com",
                 NormalizedEmail = "EMMA@GMAIL.COM",
                 EmailConfirmed = false,
                 NormalizedUserName = "EMMA@GMAIL.COM",
@@ -55,7 +56,7 @@ namespace HCSpillage.Models
             var Mba = new ApplicationUser
             {
                 Id = mbaId,
-                DeviceId = "A423",
+                DeviceId = "A456",
                 Email = "abc@gmail.com",
                 UserName = "abc@GMAIL.COM",
                 NormalizedEmail = "ABC@GMAIL.COM",
@@ -120,9 +121,9 @@ namespace HCSpillage.Models
             {
                 Id = 1,
                 DeviceId = "A123",
-                Data = "Yes",
+                Data = "No",
                 date = DateTime.UtcNow.ToShortDateString(),
-                Time = DateTime.UtcNow.ToShortTimeString(),
+                Time = TimeConversion.GetFormattedTime(),
                 Status = "On",
                 Verify = false,
                 Location = "Uyo",
@@ -132,144 +133,16 @@ namespace HCSpillage.Models
             new DataPresentation()
             {
                 Id = 2,
-                DeviceId = "A123",
+                DeviceId = "A456",
                 Data = "Yes",
                 date = DateTime.UtcNow.ToShortDateString(),
-                Time = DateTime.UtcNow.ToShortTimeString(),
-                Status = "On",
+                Time = TimeConversion.GetFormattedTime(),
+                Status = "Off",
                 Verify = true,
-                Location = "Uyo",
-                Config = true,
-                Email = "emma.@gmail.com"
-            },
-            new DataPresentation()
-            {
-                Id = 3,
-                DeviceId = "A123",
-                Data = "Yes",
-                date = DateTime.UtcNow.ToShortDateString(),
-                Time = DateTime.UtcNow.ToShortTimeString(),
-                Status = "On",
-                Verify = true,
-                Location = "Uyo",
-                Config = false,
-                Email = "emma@gmail.com"
-            },
-            new DataPresentation()
-            {
-                Id = 4,
-                DeviceId = "A423",
-                Data = "Yes",
-                date = DateTime.UtcNow.ToShortDateString(),
-                Time = DateTime.UtcNow.ToShortTimeString(),
-                Status = "On",
-                Verify = false,
-                Location = "Oron",
+                Location = "Abak",
                 Config = false,
                 Email = "abc@gmail.com"
-            },
-            new DataPresentation()
-            {
-                Id = 5,
-                DeviceId = "A423",
-                Data = "Yes",
-                date = DateTime.UtcNow.ToShortDateString(),
-                Time = DateTime.UtcNow.ToShortTimeString(),
-                Status = "On",
-                Verify = false,
-                Location = "Oron",
-                Config = false,
-                Email = "abc@gmail.com"
-            },
-                new DataPresentation()
-                {
-                    Id = 6,
-                    DeviceId = "A423",
-                    Data = "No",
-                    date = DateTime.UtcNow.ToShortDateString(),
-                    Time = DateTime.UtcNow.ToShortTimeString(),
-                    Status = "On",
-                    Verify = true,
-                    Location = "Oron",
-                    Config = false,
-                    Email = "abc@gmail.com"
-                },
-                new DataPresentation()
-                {
-                    Id = 7,
-                    DeviceId = "A423",
-                    Data = "No",
-                    date = DateTime.UtcNow.ToShortDateString(),
-                    Time = DateTime.UtcNow.ToShortTimeString(),
-                    Status = "On",
-                    Verify = true,
-                    Location = "Oron",
-                    Config = true,
-                    Email = "abc@gmail.com"
-                },
-                new DataPresentation()
-                {
-                    Id = 8,
-                    DeviceId = "A423",
-                    Data = "No",
-                    date = DateTime.UtcNow.ToShortDateString(),
-                    Time = DateTime.UtcNow.ToShortTimeString(),
-                    Status = "On",
-                    Verify = false,
-                    Location = "Oron",
-                    Config = false,
-                    Email = "abc@gmail.com"
-                },
-                new DataPresentation()
-                {
-                    Id = 9,
-                    DeviceId = "B123",
-                    Data = "No",
-                    date = DateTime.UtcNow.ToShortDateString(),
-                    Time = DateTime.UtcNow.ToShortTimeString(),
-                    Status = "On",
-                    Verify = false,
-                    Location = "Oron",
-                    Config = false,
-                    Email = "luis@gmail.com"
-                },
-                new DataPresentation()
-                {
-                    Id = 10,
-                    DeviceId = "A982",
-                    Data = "No",
-                    date = DateTime.UtcNow.ToShortDateString(),
-                    Time = DateTime.UtcNow.ToShortTimeString(),
-                    Status = "On",
-                    Verify = false,
-                    Location = "Oron",
-                    Config = false,
-                    Email = "Samuel@gmail.com"
-                }, new DataPresentation()
-                {
-                    Id = 11,
-                    DeviceId = "A093",
-                    Data = "No",
-                    date = DateTime.UtcNow.ToShortDateString(),
-                    Time = DateTime.UtcNow.ToShortTimeString(),
-                    Status = "On",
-                    Verify = false,
-                    Location = "Oron",
-                    Config = false,
-                    Email = "Oboho@gmail.com"
-                }, new DataPresentation()
-                {
-                    Id = 12,
-                    DeviceId = "A938",
-                    Data = "No",
-                    date = DateTime.UtcNow.ToShortDateString(),
-                    Time = DateTime.UtcNow.ToShortTimeString(),
-                    Status = "OFF",
-                    Verify = true,
-                    Location = "Oron",
-                    Config = false,
-                    Email = "Solomon@gmail.com"
-                }
+            }
 
           );
         }

@@ -185,8 +185,8 @@ namespace HCSpillage.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "783c11bc-75a6-463a-b8aa-7a2697f6ef4f", "867617e1-e5c2-44ba-82d3-d2eda13738ba", "Admin", "ADMIN" },
-                    { "a4719535-4dbb-4ea6-a41f-672c1a7f243e", "cd78d67e-4c23-4338-b537-1887f29af27d", "Customer", "CUSTOMER" }
+                    { "783c11bc-75a6-463a-b8aa-7a2697f6ef4f", "87559e29-7e31-432a-a927-0242521b2283", "Admin", "ADMIN" },
+                    { "a4719535-4dbb-4ea6-a41f-672c1a7f243e", "0191d3b2-9e80-47aa-8dee-0cd215a9940c", "Customer", "CUSTOMER" }
                 });
 
             migrationBuilder.InsertData(
@@ -194,9 +194,9 @@ namespace HCSpillage.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "DeviceId", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "36a578b8-e098-475b-8425-36290f6b30c8", 0, "7318e98c-9682-4aaf-b7d7-2b8aac9af443", "A423", "abc@gmail.com", false, true, null, "ABC@GMAIL.COM", "ABC@GMAIL.COM", "AQAAAAEAACcQAAAAEOeELIk4HVL51TH5dVBkQi4BcIi1k0Fc5Kch/ts49kXP/BMIsyzLiUeR3Hpo91vagg==", null, false, "d6793e89-9b69-488b-af64-a0f8f1cbe1a3", false, "abc@GMAIL.COM" },
-                    { "5a805103-d331-4154-93e8-d6ca4aec72ba", 0, "beee4111-7b26-432a-afe6-bb20f6bae4fd", "A123", "Emma@gmail.com", false, true, null, "EMMA@GMAIL.COM", "EMMA@GMAIL.COM", "AQAAAAEAACcQAAAAENFcZLdahy5IdI+YBHz1FPSzh3pbhB5+Y042U0a31SucV2BimQbEozT/it5QODIhjA==", null, false, "99221429-67cb-4b9f-a6da-aff804a9e736", false, "Emma@gmail.com" },
-                    { "d8279a54-566d-4c42-8f45-c62e8879dd4a", 0, "0c55d53d-e277-4fd2-8f31-11c4d71c75fb", null, "Admin@gmail.com", false, true, null, "ADMIN@GMAIL.COM", "ADMIN@GMAIL.COM", "AQAAAAEAACcQAAAAEFsiaMLs0RDpJZS38/YcGBaqM7wPFRiN7FqzXHDXQ1AEdLS1RGavhOa/cc8UQlfqpw==", null, false, "129dc071-b304-4b3e-981c-579cfbb9cac8", false, "Admin@gmail.com" }
+                    { "36a578b8-e098-475b-8425-36290f6b30c8", 0, "9f78f234-4abc-43ae-a335-edd5bc714bb8", "A456", "abc@gmail.com", false, true, null, "ABC@GMAIL.COM", "ABC@GMAIL.COM", "AQAAAAEAACcQAAAAEE5fFvj2owTIwW34zPGYpDZwX2zPcef+z0c4sdYe9cFp9no4MCjF/2OxKmQ5tTfTSg==", null, false, "956fe895-808f-4516-bdee-64faff99034d", false, "abc@GMAIL.COM" },
+                    { "5a805103-d331-4154-93e8-d6ca4aec72ba", 0, "f3e078e2-c3b1-444e-a6fc-62136858dabb", "A123", "emma@gmail.com", false, true, null, "EMMA@GMAIL.COM", "EMMA@GMAIL.COM", "AQAAAAEAACcQAAAAEPxhZ2wI9fNeR9fXNaG9p0V2PXaBwVQSurjZZoasWNQTpM3/R02JuK57FwPyl+UMuQ==", null, false, "22a896ec-da6d-438d-aa81-148fd8c66386", false, "emma@gmail.com" },
+                    { "d8279a54-566d-4c42-8f45-c62e8879dd4a", 0, "1b8c231b-df1c-4769-8623-208b88a60507", null, "Admin@gmail.com", false, true, null, "ADMIN@GMAIL.COM", "ADMIN@GMAIL.COM", "AQAAAAEAACcQAAAAEE2WuhtftGdL2rR8VJMHWEx/LbQqFzkGN595zCFBBgFbSSoSJjqi6Iw6SGY+Kz4GFQ==", null, false, "e0000fc5-ddcf-48b0-b16a-4cf5df56b14a", false, "Admin@gmail.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -204,14 +204,8 @@ namespace HCSpillage.Migrations
                 columns: new[] { "Id", "Config", "Data", "DeviceId", "Email", "Location", "Status", "Time", "Verify", "date" },
                 values: new object[,]
                 {
-                    { 1, true, "No Gas Detected", "A123", "emma@gmail.com", "Uyo", "On", "13:04", false, "12/12/2022" },
-                    { 2, true, "Gas detected", "A123", "emma.@gmail.com", "Uyo", "On", "13:04", true, "12/12/2022" },
-                    { 3, false, "Gas detected", "A123", "emma.@gmail.com", "Uyo", "On", "13:04", true, "12/12/2022" },
-                    { 4, false, "Gas detected", "A423", "abc@gmail.com", "Oron", "On", "13:04", false, "12/12/2022" },
-                    { 5, false, "Gas detected", "A423", "abc@gmail.com", "Oron", "On", "13:04", false, "12/12/2022" },
-                    { 6, false, "No Gas Detected", "A423", "abc@gmail.com", "Oron", "On", "13:04", true, "12/12/2022" },
-                    { 7, true, "No Gas Detected", "A423", "abc@gmail.com", "Oron", "On", "13:04", true, "12/12/2022" },
-                    { 8, false, "Gas detected", "A423", "abc@gmail.com", "Oron", "On", "13:04", false, "12/12/2022" }
+                    { 1, true, "No", "A123", "emma@gmail.com", "Uyo", "On", "1:51 PM", false, "14/12/2022" },
+                    { 2, false, "Yes", "A456", "abc@gmail.com", "Abak", "Off", "1:51 PM", true, "14/12/2022" }
                 });
 
             migrationBuilder.InsertData(

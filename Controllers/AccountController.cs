@@ -1,6 +1,7 @@
 ﻿using HCSpillage.Data;
 using HCSpillage.Dtos;
 using HCSpillage.Services;
+using HCSpillage.Time;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -80,29 +81,29 @@ namespace HCSpillage.Controllers
             {
                 return View(model);
             }
-            var deviceUser = repository.GetDataByDeviceId(model.DeviceId);
+            var deviceUser = await userManager.FindByEmailAsync(model.Email);
 
             if(deviceUser == null)
             {
-                ModelState.AddModelError(string.Empty, "Device does not Exist");
+                ModelState.AddModelError(string.Empty, "Either User does not Exist or");
             }else
-                { 
-                if(deviceUser.Email == model.Email)
-                {
-                    repository.VerifyDevice(deviceUser);
-                    var user = new ApplicationUser
-                    {
-                        Email = model.Email,
-                        UserName = model.Email,
-                        DeviceId = model.DeviceId
-                    };
+              {
 
-                    var result = await userManager.CreateAsync(user, model.Password);
+                var passwordHasher = new PasswordHasher<ApplicationUser>();
+
+
+                    deviceUser.Email = model.Email;
+                    deviceUser.UserName = model.Email;
+                    deviceUser.PasswordHash = passwordHasher.HashPassword(deviceUser, model.Password);
+                    deviceUser.Verify = true;
+
+                    var result = await userManager.UpdateAsync(deviceUser);
+                    
 
                     if (result.Succeeded)
                     {
-                        await userManager.AddToRoleAsync(user, "Customer");
-                        await signInManager.SignInAsync(user, false);
+                        await userManager.AddToRoleAsync(deviceUser, "Customer");
+                        await signInManager.SignInAsync(deviceUser, false);
                         return RedirectToAction("index", "home");
                     }
 
@@ -110,7 +111,7 @@ namespace HCSpillage.Controllers
                     {
                         ModelState.AddModelError(string.Empty, error.Description);
                     }
-                }
+                
             }
             ModelState.AddModelError(string.Empty, "Provided device does not match Registered Email");
             return View(model);
@@ -122,5 +123,48 @@ namespace HCSpillage.Controllers
             return RedirectToAction("index", "home");
         }
 
+        [HttpGet]
+        public IActionResult RegisterByAdmin()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> RegisterByAdmin(UserAccountViewModelByAdmin model)
+        {
+            if(ModelState.IsValid)
+            {
+                ApplicationUser applicationUser = await userManager.FindByEmailAsync(model.Email);
+                if(applicationUser != null)
+                {
+                    ModelState.AddModelError(string.Empty, errorMessage: "Device Already Exist");
+                }else
+                {
+                    ApplicationUser AppUser = new ApplicationUser
+                    {
+                        Email = model.Email,
+                        UserName = model.Email,
+                        DeviceId = model.DeviceId,
+                        Location = model.Location,
+                        Date = DateTime.Now.ToShortDateString(),
+                        Time = TimeConversion.GetFormattedTime(),
+                        Verify = false
+                    };
+
+                   var result =  await userManager.CreateAsync(AppUser);
+
+                    if(result.Succeeded)
+                    {
+                        return RedirectToAction("GetRegisteredUsers", "DataPresentation");
+                    }
+
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+                }
+                
+            }
+            return View(model);
+        }
     }
 }

@@ -6,7 +6,7 @@ namespace HCSpillage.Services
     public interface IDataPresentation
     {
         public DataPresentation GetDataByDeviceId(string deviceId);
-        public IEnumerable<DataPresentation> GetAllData();
+        public List<DataPresentation> GetAllData();
         public List<DataPresentation> GetAllDataByDeviceId(string deviceId);
         public IEnumerable<DataPresentation> GetVerifiedData();
         public IEnumerable<DataPresentation> GetUnverifiedData();

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HCSpillage.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221214125157_initialMigration")]
+    [Migration("20221223144323_initialMigration")]
     partial class initialMigration
     {
         /// <inheritdoc />
@@ -37,6 +37,10 @@ namespace HCSpillage.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Date")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("DeviceId")
                         .HasColumnType("nvarchar(max)");
 
@@ -46,6 +50,10 @@ namespace HCSpillage.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -73,12 +81,19 @@ namespace HCSpillage.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Time")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("Verify")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -97,51 +112,63 @@ namespace HCSpillage.Migrations
                         {
                             Id = "d8279a54-566d-4c42-8f45-c62e8879dd4a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1b8c231b-df1c-4769-8623-208b88a60507",
+                            ConcurrencyStamp = "ee82e1ca-18bd-46bd-977f-36ab920722b6",
+                            Date = "23/12/2022",
                             Email = "Admin@gmail.com",
                             EmailConfirmed = false,
+                            Location = "Oron",
                             LockoutEnabled = true,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEE2WuhtftGdL2rR8VJMHWEx/LbQqFzkGN595zCFBBgFbSSoSJjqi6Iw6SGY+Kz4GFQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOX9dz6LcbuDWawrZPRSuIwyyv3qKIiVCZjbtDw+mvIAfOo/C8pBwVPgwtg7NEHISQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e0000fc5-ddcf-48b0-b16a-4cf5df56b14a",
+                            SecurityStamp = "5f5e7d5c-9789-4a0b-b9af-1e9f77891c92",
+                            Time = "3:43 PM",
                             TwoFactorEnabled = false,
-                            UserName = "Admin@gmail.com"
+                            UserName = "Admin@gmail.com",
+                            Verify = false
                         },
                         new
                         {
                             Id = "5a805103-d331-4154-93e8-d6ca4aec72ba",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f3e078e2-c3b1-444e-a6fc-62136858dabb",
+                            ConcurrencyStamp = "4c3021fd-7d94-458e-b59b-a3270f58eb3d",
+                            Date = "23/12/2022",
                             DeviceId = "A123",
                             Email = "emma@gmail.com",
                             EmailConfirmed = false,
+                            Location = "Uyo",
                             LockoutEnabled = true,
                             NormalizedEmail = "EMMA@GMAIL.COM",
                             NormalizedUserName = "EMMA@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPxhZ2wI9fNeR9fXNaG9p0V2PXaBwVQSurjZZoasWNQTpM3/R02JuK57FwPyl+UMuQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKSGUyH+RBiY6/1bMM+kxLlrHbJGMbGydRMlumVJy+EJJkg1PvyKKSWYAaOwZYpY+Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "22a896ec-da6d-438d-aa81-148fd8c66386",
+                            SecurityStamp = "4997647a-1908-4855-9935-9938fdb95061",
+                            Time = "3:43 PM",
                             TwoFactorEnabled = false,
-                            UserName = "emma@gmail.com"
+                            UserName = "emma@gmail.com",
+                            Verify = true
                         },
                         new
                         {
                             Id = "36a578b8-e098-475b-8425-36290f6b30c8",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9f78f234-4abc-43ae-a335-edd5bc714bb8",
+                            ConcurrencyStamp = "09c7f2f8-f9bb-4072-ac06-89693dba1748",
+                            Date = "23/12/2022",
                             DeviceId = "A456",
                             Email = "abc@gmail.com",
                             EmailConfirmed = false,
+                            Location = "Abak",
                             LockoutEnabled = true,
                             NormalizedEmail = "ABC@GMAIL.COM",
                             NormalizedUserName = "ABC@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEE5fFvj2owTIwW34zPGYpDZwX2zPcef+z0c4sdYe9cFp9no4MCjF/2OxKmQ5tTfTSg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECYb4nUTokD2igzpPbe/UH8rnwVCu0vFn/rqaQ/aOg76dbRIFTt9O6S0tKTnK7E6uQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "956fe895-808f-4516-bdee-64faff99034d",
+                            SecurityStamp = "4b1d85f7-d37a-4ebf-8cfb-bb968b40c0fa",
+                            Time = "3:43 PM",
                             TwoFactorEnabled = false,
-                            UserName = "abc@GMAIL.COM"
+                            UserName = "abc@GMAIL.COM",
+                            Verify = true
                         });
                 });
 
@@ -196,9 +223,9 @@ namespace HCSpillage.Migrations
                             Email = "emma@gmail.com",
                             Location = "Uyo",
                             Status = "On",
-                            Time = "1:51 PM",
+                            Time = "3:43 PM",
                             Verify = false,
-                            date = "14/12/2022"
+                            date = "23/12/2022"
                         },
                         new
                         {
@@ -209,9 +236,9 @@ namespace HCSpillage.Migrations
                             Email = "abc@gmail.com",
                             Location = "Abak",
                             Status = "Off",
-                            Time = "1:51 PM",
+                            Time = "3:43 PM",
                             Verify = true,
-                            date = "14/12/2022"
+                            date = "23/12/2022"
                         });
                 });
 
@@ -245,14 +272,14 @@ namespace HCSpillage.Migrations
                         new
                         {
                             Id = "783c11bc-75a6-463a-b8aa-7a2697f6ef4f",
-                            ConcurrencyStamp = "87559e29-7e31-432a-a927-0242521b2283",
+                            ConcurrencyStamp = "4a8eb636-b526-451b-b394-7144091f081f",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "a4719535-4dbb-4ea6-a41f-672c1a7f243e",
-                            ConcurrencyStamp = "0191d3b2-9e80-47aa-8dee-0cd215a9940c",
+                            ConcurrencyStamp = "6ee5bf1f-f221-44f1-a939-8fc06caa5514",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         });

@@ -1,0 +1,58 @@
+﻿@model IQueryable<ApplicationUser>
+
+@{
+    Layout = "_Layout1";
+    ViewBag.Title = "Registered Users";
+}
+
+
+<div class="row mt-5">
+    <div class="col-md-10 col-sm-6 text-center h3">
+       Registered Users
+    </div>
+    <div class="col-md-2 col-sm-6 text-center">
+
+        <form method="post" asp-action="GetRegisteredUsersPDF" asp-controller="DataPresentation">
+            <input type="submit" value="Generate PDF" />
+        </form>
+
+    </div>
+</div>
+
+<hr class="border border-success border-2" />
+<br />
+<table class="table table-striped table-success">
+    <thead>
+        <tr>
+
+          
+            <th>device ID</th>
+            <th>Location</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Verified</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var user in Model)
+        {
+            @if(user.Email != "Admin@gmail.com")
+            {
+                <tr>
+
+                    <td>@user.DeviceId</td>
+                    <td>@user.Location</td>
+                    <td>@user.Date</td>
+                    <td>@user.Time</td>
+                    <td>@user.Verify</td>
+                    <td>
+                        <a class="btn btn-primary" asp-action="deviceDetails" asp-controller="DataPresentation" asp-route-deviceId="@user.DeviceId">View Details</a>
+                    </td>
+                </tr>
+            }
+
+        }
+    </tbody>
+</table>

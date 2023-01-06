@@ -1,6 +1,7 @@
 ﻿using HCSpillage.Data;
 using HCSpillage.Dtos;
 using HCSpillage.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace HCSpillage.Services
 {
@@ -15,14 +16,16 @@ namespace HCSpillage.Services
 
         public DataPresentation CreateDevice(DataPresentation device)
         {
+            
             dbContext.DeviceData.Add(device);
             dbContext.SaveChanges();
             return device;
         }
 
-        public IEnumerable<DataPresentation> GetAllData()
+        public List<DataPresentation> GetAllData()
         {
-            var DataCollection = dbContext.DeviceData.Where(x => x.Data == "Yes").ToList();
+            var DataCollection = dbContext.DeviceData.ToList();
+            DataCollection = DataCollection.OrderByDescending(data => data.Id).ToList();
             return DataCollection;
         }
 
@@ -30,7 +33,8 @@ namespace HCSpillage.Services
         {
            if(!string.IsNullOrEmpty(deviceId))
             {
-                return dbContext.DeviceData.Where(device => device.DeviceId == deviceId).ToList();
+                var datas =  dbContext.DeviceData.Where(device => device.DeviceId == deviceId).ToList();
+                return datas = datas.OrderByDescending(data => data.Id).ToList();
             }
             return null;
         }
@@ -38,6 +42,7 @@ namespace HCSpillage.Services
         public IEnumerable<DataPresentation> GetAllDeviceByData()
         {
             var data = dbContext.DeviceData.ToList();
+            data = data.OrderByDescending(data => data.Id).ToList();
             return data;
         }
 
@@ -50,12 +55,14 @@ namespace HCSpillage.Services
 
         public IEnumerable<DataPresentation> GetUnverifiedData()
         {
-            return dbContext.DeviceData.Where(device => device.Verify != true);
+           var  Data =  dbContext.DeviceData.Where(device => device.Verify != true);
+            return Data = Data.OrderByDescending(data => data.Id);
         }
 
         public IEnumerable<DataPresentation> GetVerifiedData()
         {
-            return dbContext.DeviceData.Where(device => device.Verify == true);
+            var data =  dbContext.DeviceData.Where(device => device.Verify == true);
+            return data.OrderByDescending(data => data.Id);
         }
 
         public void VerifyDevice(DataPresentation device)

@@ -1,10 +1,12 @@
 ﻿using HCSpillage.Time;
+using System.ComponentModel.DataAnnotations;
 
 namespace HCSpillage.Models
 {
     public class DataPresentation
     {
 
+        [Key]
         public int Id { get; set; }    
         public string? Location { get; set; }
         public string? DeviceId { get; set; }

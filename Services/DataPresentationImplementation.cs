@@ -59,7 +59,7 @@ namespace HCSpillage.Services
             return device;
         }
 
-        public IEnumerable<DataPresentation> GetAllData()
+        public List<DataPresentation> GetAllData()
         {
             return Presentations;
         }

@@ -73,13 +73,16 @@
 
                 <ul class="navbar-nav navbar-dropdown">
                     <li class="nav-item">
-                        <a class="nav-link" asp-action="GetVerifiedDevice" asp-controller="DataPresentation" >Verified device</a>
+                        <a class="nav-link" asp-action="GetVerifiedDevice" asp-controller="DataPresentation">Verified device</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" asp-action="GetUnVerifiedDevice" asp-controller="DataPresentation" >Unverified device</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-action="GetAllDeviceData" asp-controller="DataPresentation">All device</a>
+                        <a class="nav-link" asp-action="GetRegisteredUsers" asp-controller="DataPresentation">All device</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="GetAllDeviceData" asp-controller="DataPresentation">View Logged Data</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" asp-action="CreateDevice" asp-controller="DataPresentation">Create device</a>
@@ -92,11 +95,12 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-2 sidebar text-center">
+            <div class="col-lg-2 sidebar">
                 <div class="sidebar-text lead">
                     <a asp-action="GetVerifiedDevice" asp-controller="DataPresentation" >Verified device</a>
                     <a asp-action="GetUnVerifiedDevice" asp-controller="DataPresentation" >Unverified device</a>
-                    <a asp-action="GetAllDeviceData" asp-controller="DataPresentation">All device</a>
+                    <a asp-action="GetRegisteredUsers" asp-controller="DataPresentation">Registered Device</a>
+                    <a asp-action="GetAllDeviceData" asp-controller="DataPresentation">View Logged Data</a>
                     <a asp-action="CreateDevice" asp-controller="DataPresentation">Create device</a>
                 </div>
             </div>

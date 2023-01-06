@@ -33,6 +33,10 @@ namespace HCSpillage.Migrations
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     DeviceId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Location = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Date = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Time = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Verify = table.Column<bool>(type: "bit", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -185,18 +189,18 @@ namespace HCSpillage.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "783c11bc-75a6-463a-b8aa-7a2697f6ef4f", "87559e29-7e31-432a-a927-0242521b2283", "Admin", "ADMIN" },
-                    { "a4719535-4dbb-4ea6-a41f-672c1a7f243e", "0191d3b2-9e80-47aa-8dee-0cd215a9940c", "Customer", "CUSTOMER" }
+                    { "783c11bc-75a6-463a-b8aa-7a2697f6ef4f", "4a8eb636-b526-451b-b394-7144091f081f", "Admin", "ADMIN" },
+                    { "a4719535-4dbb-4ea6-a41f-672c1a7f243e", "6ee5bf1f-f221-44f1-a939-8fc06caa5514", "Customer", "CUSTOMER" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "DeviceId", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Date", "DeviceId", "Email", "EmailConfirmed", "Location", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "Time", "TwoFactorEnabled", "UserName", "Verify" },
                 values: new object[,]
                 {
-                    { "36a578b8-e098-475b-8425-36290f6b30c8", 0, "9f78f234-4abc-43ae-a335-edd5bc714bb8", "A456", "abc@gmail.com", false, true, null, "ABC@GMAIL.COM", "ABC@GMAIL.COM", "AQAAAAEAACcQAAAAEE5fFvj2owTIwW34zPGYpDZwX2zPcef+z0c4sdYe9cFp9no4MCjF/2OxKmQ5tTfTSg==", null, false, "956fe895-808f-4516-bdee-64faff99034d", false, "abc@GMAIL.COM" },
-                    { "5a805103-d331-4154-93e8-d6ca4aec72ba", 0, "f3e078e2-c3b1-444e-a6fc-62136858dabb", "A123", "emma@gmail.com", false, true, null, "EMMA@GMAIL.COM", "EMMA@GMAIL.COM", "AQAAAAEAACcQAAAAEPxhZ2wI9fNeR9fXNaG9p0V2PXaBwVQSurjZZoasWNQTpM3/R02JuK57FwPyl+UMuQ==", null, false, "22a896ec-da6d-438d-aa81-148fd8c66386", false, "emma@gmail.com" },
-                    { "d8279a54-566d-4c42-8f45-c62e8879dd4a", 0, "1b8c231b-df1c-4769-8623-208b88a60507", null, "Admin@gmail.com", false, true, null, "ADMIN@GMAIL.COM", "ADMIN@GMAIL.COM", "AQAAAAEAACcQAAAAEE2WuhtftGdL2rR8VJMHWEx/LbQqFzkGN595zCFBBgFbSSoSJjqi6Iw6SGY+Kz4GFQ==", null, false, "e0000fc5-ddcf-48b0-b16a-4cf5df56b14a", false, "Admin@gmail.com" }
+                    { "36a578b8-e098-475b-8425-36290f6b30c8", 0, "09c7f2f8-f9bb-4072-ac06-89693dba1748", "23/12/2022", "A456", "abc@gmail.com", false, "Abak", true, null, "ABC@GMAIL.COM", "ABC@GMAIL.COM", "AQAAAAEAACcQAAAAECYb4nUTokD2igzpPbe/UH8rnwVCu0vFn/rqaQ/aOg76dbRIFTt9O6S0tKTnK7E6uQ==", null, false, "4b1d85f7-d37a-4ebf-8cfb-bb968b40c0fa", "3:43 PM", false, "abc@GMAIL.COM", true },
+                    { "5a805103-d331-4154-93e8-d6ca4aec72ba", 0, "4c3021fd-7d94-458e-b59b-a3270f58eb3d", "23/12/2022", "A123", "emma@gmail.com", false, "Uyo", true, null, "EMMA@GMAIL.COM", "EMMA@GMAIL.COM", "AQAAAAEAACcQAAAAEKSGUyH+RBiY6/1bMM+kxLlrHbJGMbGydRMlumVJy+EJJkg1PvyKKSWYAaOwZYpY+Q==", null, false, "4997647a-1908-4855-9935-9938fdb95061", "3:43 PM", false, "emma@gmail.com", true },
+                    { "d8279a54-566d-4c42-8f45-c62e8879dd4a", 0, "ee82e1ca-18bd-46bd-977f-36ab920722b6", "23/12/2022", null, "Admin@gmail.com", false, "Oron", true, null, "ADMIN@GMAIL.COM", "ADMIN@GMAIL.COM", "AQAAAAEAACcQAAAAEOX9dz6LcbuDWawrZPRSuIwyyv3qKIiVCZjbtDw+mvIAfOo/C8pBwVPgwtg7NEHISQ==", null, false, "5f5e7d5c-9789-4a0b-b9af-1e9f77891c92", "3:43 PM", false, "Admin@gmail.com", false }
                 });
 
             migrationBuilder.InsertData(
@@ -204,8 +208,8 @@ namespace HCSpillage.Migrations
                 columns: new[] { "Id", "Config", "Data", "DeviceId", "Email", "Location", "Status", "Time", "Verify", "date" },
                 values: new object[,]
                 {
-                    { 1, true, "No", "A123", "emma@gmail.com", "Uyo", "On", "1:51 PM", false, "14/12/2022" },
-                    { 2, false, "Yes", "A456", "abc@gmail.com", "Abak", "Off", "1:51 PM", true, "14/12/2022" }
+                    { 1, true, "No", "A123", "emma@gmail.com", "Uyo", "On", "3:43 PM", false, "23/12/2022" },
+                    { 2, false, "Yes", "A456", "abc@gmail.com", "Abak", "Off", "3:43 PM", true, "23/12/2022" }
                 });
 
             migrationBuilder.InsertData(
